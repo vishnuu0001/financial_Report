@@ -38,8 +38,9 @@ def create_report(summary):
     template = Template(template_text)
     report_html = template.render(summary=summary)
 
-    # Save as PDF
-    pdfkit.from_string(report_html, "outputs/reports/financial_report.pdf")
+    # Specify the path to wkhtmltopdf.exe
+    config = pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
+    pdfkit.from_string(report_html, "data/outputs/reports/financial_report.pdf", configuration=config)
 
 if __name__ == "__main__":
     df = pd.read_csv("data/processed/financial_data.csv")
