@@ -4,7 +4,7 @@ import subprocess
 def run_pipeline():
     """Execute the full financial report generation pipeline."""
     print("Fetching and preprocessing data...")
-    subprocess.run(["python", "scripts/data_preprocessing.py"])
+    subprocess.run(["python", "scripts/data_processing.py"])
 
     print("Performing financial analysis...")
     subprocess.run(["python", "scripts/financial_analysis.py"])
